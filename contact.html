@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Intine.Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=General+Sans:wght@300;400;500;600;700&family=Satoshi:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Loading screen -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Animated background -->
+  <div class="bg-animation"></div>
+
+  <!-- Floating particles -->
+  <div class="particles" id="particles"></div>
+
+  <header id="header">
+    <a href="index.html" class="logo">
+      <img src="assets/logos/logo-white.png" alt="Intine Logo" class="logo-mark">
+      <img src="assets/logos/wordmark-white.png" alt="Intine Wordmark" class="logo-wordmark">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="page-header">
+    <h1>Get In Touch</h1>
+    <p>Ready to start your next project? Let's discuss how we can help bring your vision to life.</p>
+  </section>
+
+  <section class="section">
+    <h2>Let's Work Together</h2>
+    <p>Whether you have a specific project in mind or just want to explore possibilities, we'd love to hear from you.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-form">
+        <h3 style="margin-bottom: 2rem; color: var(--cloud-grey); font-size: 1.5rem;">Send us a message</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company">
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Interest</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option value="branding">Brand Identity & Strategy</option>
+              <option value="web">Web Design & Development</option>
+              <option value="mobile">Mobile App Design</option>
+              <option value="marketing">Digital Marketing</option>
+              <option value="ux">UX/UI Design</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Project Budget</label>
+            <select id="budget" name="budget">
+              <option value="">Select budget range</option>
+              <option value="0-1k">$0 - $1,000</option>
+              <option value="1k-3k">$1,000 - $3,000</option>
+              <option value="3k-5k">$3,000 - $5,000</option>
+              <option value="5k+">$5,000+</option>
+              <option value="discuss">Let's discuss</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Details *</label>
+            <textarea id="message" name="message"
+              placeholder="Tell us about your project, goals, and any specific requirements..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h3 style="margin-bottom: 2rem; color: var(--cloud-grey); font-size: 1.5rem;">Contact Information</h3>
+
+        <div class="contact-item">
+          <div class="icon">📧</div>
+          <div class="content">
+            <h3>Email</h3>
+            <a href="mailto:askintine@gmail.com">askintine@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon">📱</div>
+          <div class="content">
+            <h3>Phone</h3>
+            <a href="tel:+919591021270">+91 95910-21270</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon">📍</div>
+          <div class="content">
+            <h3>Location</h3>
+            <p>Bangalore, India<br>Working globally</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon">⏰</div>
+          <div class="content">
+            <h3>Business Hours</h3>
+            <p>All day, every day<br>24/7</p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://instagram.com/intine.studio" target="_blank" class="social-link">
+            <span>📷</span>
+          </a>
+          <a href="https://twitter.com/intinestudio" target="_blank" class="social-link">
+            <span>🐦</span>
+          </a>
+          <a href="https://linkedin.com/company/intine-studio" target="_blank" class="social-link">
+            <span>💼</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2020 Intine. All rights reserved.
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
