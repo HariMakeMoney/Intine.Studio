@@ -1,4 +1,29 @@
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -184,7 +209,7 @@ nav a:hover {
   font-size: clamp(5rem, 8vw, 7rem);
   letter-spacing: -0.03em;
   line-height: 0.95;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1rem;
   background: none;
   transform-style: preserve-3d;
@@ -259,7 +284,7 @@ nav a:hover {
 .section h3 {
   font-size: 3rem;
   letter-spacing: -0.02em;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 2rem;
   text-align: left;
   background: none;
@@ -485,7 +510,7 @@ footer {
   font-size: clamp(5rem, 8vw, 7rem);
   letter-spacing: -0.03em;
   line-height: 0.95;
-  font-weight: 600;
+  font-weight: 700;
   background: none;
   margin-bottom: 1rem;
   position: relative;
@@ -508,7 +533,7 @@ footer {
 .section h3 {
   font-size: 3rem;
   letter-spacing: -0.02em;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 2rem;
   text-align: left;
   background: none;
@@ -794,7 +819,7 @@ footer {
   position: absolute;
   left: 0;
   color: var(--white);
-  font-weight: bold;
+  font-weight: 700;
 }
 
 
@@ -832,7 +857,7 @@ footer {
   justify-content: center;
   margin: 0 auto 1.5rem;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--white);
   font-family: 'Satoshi', sans-serif;
   border-radius: 0;
@@ -897,7 +922,7 @@ footer {
   color: #000000;
   text-decoration: none;
   font-family: 'Satoshi', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.1rem;
   padding: 1.2rem 2.5rem;
   border-radius: 999px;
@@ -1080,7 +1105,7 @@ footer {
   color: #000000;
   text-decoration: none;
   border-radius: 0;
-  font-weight: 600;
+  font-weight: 700;
   font-family: 'Satoshi', sans-serif;
   transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
@@ -1124,7 +1149,7 @@ footer {
 
 .stat-item .number {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   background: none;
   margin-bottom: 0.5rem;
   font-family: 'Satoshi', sans-serif;
