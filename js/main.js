@@ -187,7 +187,7 @@ document.querySelectorAll(tiltSelector).forEach(card => {
   });
 });
 
-// Form handling (contact.html)
+// Form handling (contact)
 const form = document.getElementById('contactForm');
 if (form) {
   form.addEventListener('submit', function (e) {
