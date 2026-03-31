@@ -187,31 +187,6 @@ document.querySelectorAll(tiltSelector).forEach(card => {
   });
 });
 
-// Filter functionality (work.html)
-const filterButtons = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-if (filterButtons.length > 0) {
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      const filter = button.getAttribute('data-filter');
-
-      portfolioItems.forEach(item => {
-        const categories = item.getAttribute('data-category');
-        if (filter === 'all' || (categories && categories.includes(filter))) {
-          item.style.display = 'block';
-          item.style.animation = 'fadeIn 0.5s ease forwards';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  });
-}
-
 // Form handling (contact.html)
 const form = document.getElementById('contactForm');
 if (form) {
