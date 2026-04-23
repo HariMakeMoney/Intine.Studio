@@ -34,115 +34,88 @@
     </nav>
   </header>
 
-  <section class="page-header">
-    <h1>Get In Touch</h1>
-    <p>Ready to start your next project? Let's discuss how we can help bring your vision to life.</p>
-  </section>
+  <section class="contact-hero section"
+    style="min-height: 100vh; padding-top: 150px; display: flex; align-items: center; width: 100%; max-width: 1400px; margin: 0 auto;">
+    <div class="contact-layout">
+      <!-- Left Column -->
+      <div class="contact-hero-content">
+        <h1 class="contact-headline">Let's build<br>something<br><span
+            style="color: rgba(255,255,255,0.6)">meaningful.</span></h1>
+        <p class="contact-subtext">Fill out the form and we'll aim to get back to you within 24 hours. Let's start the
+          conversation about your next big move.</p>
 
-  <section class="section">
-    <h2>Let's Work Together</h2>
-    <p>Whether you have a specific project in mind or just want to explore possibilities, we'd love to hear from you.
-    </p>
-
-    <div class="contact-grid">
-      <div class="contact-form">
-        <h3 style="margin-bottom: 2rem; color: var(--cloud-grey); font-size: 1.5rem;">Send us a message</h3>
-        <form id="contactForm">
-          <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required>
+        <div class="quick-contacts">
+          <div class="contact-method">
+            <span class="contact-label">Email Us</span>
+            <a href="mailto:askintine@gmail.com" class="contact-link">askintine@gmail.com</a>
           </div>
-
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required>
+          <div class="contact-method">
+            <span class="contact-label">WhatsApp</span>
+            <a href="https://wa.me/919591021270" target="_blank" class="contact-link">+91 95910-21270</a>
           </div>
-
-          <div class="form-group">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company">
+          <div class="contact-method social-mini">
+            <span class="contact-label">Socials</span>
+            <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
+              <a href="https://instagram.com/intine.studio" target="_blank">IG</a>
+              <a href="https://twitter.com/intinestudio" target="_blank">TW</a>
+              <a href="https://linkedin.com/company/intine-studio" target="_blank">IN</a>
+            </div>
           </div>
+        </div>
 
-          <div class="form-group">
-            <label for="service">Service Interest</label>
-            <select id="service" name="service">
-              <option value="">Select a service</option>
-              <option value="branding">Brand Identity & Strategy</option>
-              <option value="web">Web Design & Development</option>
-              <option value="mobile">Mobile App Design</option>
-              <option value="marketing">Digital Marketing</option>
-              <option value="ux">UX/UI Design</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="budget">Project Budget</label>
-            <select id="budget" name="budget">
-              <option value="">Select budget range</option>
-              <option value="0-1k">$0 - $1,000</option>
-              <option value="1k-3k">$1,000 - $3,000</option>
-              <option value="3k-5k">$3,000 - $5,000</option>
-              <option value="5k+">$5,000+</option>
-              <option value="discuss">Let's discuss</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Project Details *</label>
-            <textarea id="message" name="message"
-              placeholder="Tell us about your project, goals, and any specific requirements..." required></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+        <div class="credibility-section">
+          <p class="testimonial-text">"Intine transformed our digital presence. The process was seamless and the results
+            exceeded our expectations."</p>
+          <p class="testimonial-author"> - Madhvik Nemani, Founder of Wagwan</p>
+        </div>
       </div>
 
-      <div class="contact-info">
-        <h3 style="margin-bottom: 2rem; color: var(--cloud-grey); font-size: 1.5rem;">Contact Information</h3>
+      <!-- Right Column -->
+      <div class="contact-form-container">
+        <div class="premium-form-wrapper">
+          <form id="contactForm" class="minimal-form">
+            <div class="form-row">
+              <div class="form-group modern-input">
+                <input type="text" id="name" name="name" required placeholder=" ">
+                <label for="name">Full Name</label>
+              </div>
+              <div class="form-group modern-input">
+                <input type="email" id="email" name="email" required placeholder=" ">
+                <label for="email">Email Address</label>
+              </div>
+            </div>
 
-        <div class="contact-item">
-          <div class="icon">📧</div>
-          <div class="content">
-            <h3>Email</h3>
-            <a href="mailto:askintine@gmail.com">askintine@gmail.com</a>
-          </div>
-        </div>
+            <div class="form-group modern-input select-wrapper">
+              <select id="service" name="service" required>
+                <option value="" disabled selected hidden></option>
+                <option value="branding">Brand Identity & Strategy</option>
+                <option value="web">Web & Product Design</option>
+                <option value="marketing">Marketing & Content</option>
+                <option value="other">Something Else</option>
+              </select>
+              <label for="service">Project Type</label>
+            </div>
 
-        <div class="contact-item">
-          <div class="icon">📱</div>
-          <div class="content">
-            <h3>Phone</h3>
-            <a href="tel:+919591021270">+91 95910-21270</a>
-          </div>
-        </div>
+            <div class="form-group modern-input select-wrapper">
+              <select id="budget" name="budget" required>
+                <option value="" disabled selected hidden></option>
+                <option value="1k-3k">$1,000 - $3,000</option>
+                <option value="3k-5k">$3,000 - $5,000</option>
+                <option value="5k+">$5,000+</option>
+                <option value="discuss">Not sure, let's discuss</option>
+              </select>
+              <label for="budget">Expected Budget</label>
+            </div>
 
-        <div class="contact-item">
-          <div class="icon">📍</div>
-          <div class="content">
-            <h3>Location</h3>
-            <p>Bangalore, India<br>Working globally</p>
-          </div>
-        </div>
+            <div class="form-group modern-input">
+              <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+              <label for="message">Project Details (Goals, Timeline, etc.)</label>
+            </div>
 
-        <div class="contact-item">
-          <div class="icon">⏰</div>
-          <div class="content">
-            <h3>Business Hours</h3>
-            <p>All day, every day<br>24/7</p>
-          </div>
-        </div>
-
-        <div class="social-links">
-          <a href="https://instagram.com/intine.studio" target="_blank" class="social-link">
-            <span>📷</span>
-          </a>
-          <a href="https://twitter.com/intinestudio" target="_blank" class="social-link">
-            <span>🐦</span>
-          </a>
-          <a href="https://linkedin.com/company/intine-studio" target="_blank" class="social-link">
-            <span>💼</span>
-          </a>
+            <button type="submit" class="submit-cta">
+              Let's Talk <span class="arrow">→</span>
+            </button>
+          </form>
         </div>
       </div>
     </div>
