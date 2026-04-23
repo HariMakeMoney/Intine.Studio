@@ -1550,9 +1550,11 @@ footer {
 .premium-form-wrapper::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
 }
 
 .form-row {
@@ -1586,6 +1588,7 @@ footer {
   appearance: none;
   -webkit-appearance: none;
 }
+
 .modern-input.select-wrapper::after {
   content: '▼';
   position: absolute;
@@ -1595,6 +1598,7 @@ footer {
   color: var(--soft-white);
   pointer-events: none;
 }
+
 .modern-input select option {
   background: #111;
   color: var(--white);
@@ -1618,12 +1622,12 @@ footer {
   opacity: 0.7;
 }
 
-.modern-input input:focus ~ label,
-.modern-input input:not(:placeholder-shown) ~ label,
-.modern-input textarea:focus ~ label,
-.modern-input textarea:not(:placeholder-shown) ~ label,
-.modern-input select:focus ~ label,
-.modern-input select:valid ~ label {
+.modern-input input:focus~label,
+.modern-input input:not(:placeholder-shown)~label,
+.modern-input textarea:focus~label,
+.modern-input textarea:not(:placeholder-shown)~label,
+.modern-input select:focus~label,
+.modern-input select:valid~label {
   top: -0.5rem;
   font-size: 0.8rem;
   opacity: 1;
@@ -1670,15 +1674,18 @@ footer {
     grid-template-columns: 1fr;
     gap: 4rem;
   }
+
   .contact-hero {
     padding-top: 120px;
   }
 }
+
 @media (max-width: 768px) {
   .form-row {
     grid-template-columns: 1fr;
     gap: 0;
   }
+
   .premium-form-wrapper {
     padding: 2rem;
   }
@@ -1718,7 +1725,7 @@ footer {
 }
 
 .highlight-text {
-  background: linear-gradient(90deg, #ffffff, rgba(255,255,255,0.4));
+  background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0.4));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -1913,6 +1920,7 @@ footer {
 .process-node:hover .node-indicator {
   border-color: var(--white);
 }
+
 .process-node:hover .node-indicator::after {
   opacity: 1;
 }
@@ -1935,6 +1943,7 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
   }
+
   .process-track {
     display: none;
   }
@@ -1945,13 +1954,16 @@ footer {
     grid-template-columns: 1fr;
     padding: 2rem;
   }
+
   .service-meta {
     margin-bottom: -1rem;
   }
+
   .trust-stats {
     gap: 3rem;
     flex-direction: column;
   }
+
   .process-timeline {
     grid-template-columns: 1fr;
   }
