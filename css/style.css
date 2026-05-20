@@ -2886,3 +2886,104 @@ footer {
   font-weight: 500;
   color: var(--soft-white);
 }
+
+/* ==================================================
+   BORDER GLOW EFFECT
+   ================================================== */
+.border-glow {
+  position: relative;
+  background-color: #0B0B0B;
+  border-radius: 24px;
+}
+
+/* Specific overrides for components using border-glow */
+.case-study-row.border-glow {
+  padding: 4rem;
+}
+
+.process-item.border-glow {
+  padding: 3rem;
+  border-bottom: none; /* Remove list border since it's now a card */
+  margin-bottom: 1rem;
+}
+.process-item.border-glow:first-child {
+  border-top: none;
+}
+.process-item.border-glow:hover {
+  padding-left: 3rem; /* maintain padding */
+}
+
+.cta-inner.border-glow {
+  padding: 6rem 2rem;
+}
+
+#contactForm.border-glow {
+  padding: 3rem;
+}
+
+.border-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  /* Extremely subtle cinematic light gradient */
+  background: radial-gradient(
+    400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(207, 207, 207, 0.05) 30%,
+    rgba(255, 255, 255, 0.02) 60%,
+    transparent 80%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.border-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  /* Inner fill for cinematic depth */
+  background: radial-gradient(
+    400px circle at var(--mouse-x, -999px) var(--mouse-y, -999px),
+    rgba(255, 255, 255, 0.015) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.border-glow > * {
+  position: relative;
+  z-index: 1;
+}
+
+.border-glow:hover::before,
+.border-glow:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .border-glow::before,
+  .border-glow::after {
+    display: none;
+  }
+  .case-study-row.border-glow {
+    padding: 2rem;
+  }
+  .process-item.border-glow {
+    padding: 2rem;
+  }
+  .process-item.border-glow:hover {
+    padding-left: 2rem;
+  }
+}
