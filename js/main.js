@@ -63,7 +63,8 @@ function initStarfield() {
 }
 
 // Initialize starfield immediately
-initStarfield();
+// initStarfield();
+// Reduced visual noise: Starfield animation disabled to prioritize clarity and premium feel.
 
 // Loading screen
 window.addEventListener('load', () => {
@@ -107,17 +108,56 @@ document.querySelectorAll('.section').forEach(section => {
   observer.observe(section);
 });
 
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const header = document.getElementById('header');
-  if (header) {
-    if (window.scrollY > 100) {
+// Header scroll effect and mobile menu
+const header = document.getElementById('header');
+if (header) {
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    // Add scrolled class for background styling
+    if (currentScrollY > 100) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
     }
-  }
-});
+
+    // Hide on scroll down, show on scroll up
+    if (currentScrollY > lastScrollY && currentScrollY > 200) {
+      // Scrolling down
+      header.classList.add('nav-hidden');
+    } else {
+      // Scrolling up
+      header.classList.remove('nav-hidden');
+    }
+    
+    lastScrollY = currentScrollY;
+  }, { passive: true });
+
+  // Mobile menu setup
+  const menuBtn = document.createElement('div');
+  menuBtn.className = 'mobile-menu-btn';
+  menuBtn.innerHTML = '<span></span><span></span>';
+  header.appendChild(menuBtn);
+
+  const nav = header.querySelector('nav');
+  
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    nav.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+
+  // Close menu when clicking a link
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      nav.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+}
 
 // Smooth scrolling for navigation
 document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
