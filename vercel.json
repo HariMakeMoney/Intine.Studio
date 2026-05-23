@@ -10,6 +10,7 @@
     { "source": "/terms.html", "destination": "/terms", "permanent": true },
     { "source": "/refund.html", "destination": "/refund", "permanent": true },
     { "source": "/delivery.html", "destination": "/delivery", "permanent": true },
-    { "source": "/disclaimer.html", "destination": "/disclaimer", "permanent": true }
+    { "source": "/disclaimer.html", "destination": "/disclaimer", "permanent": true },
+    { "source": "/thank-you.html", "destination": "/thank-you", "permanent": true }
   ]
 }

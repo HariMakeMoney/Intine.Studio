@@ -62,26 +62,109 @@
     </div>
     
     <div style="flex: 1;">
-      <form id="contactForm" class="border-glow" style="display: flex; flex-direction: column; gap: 2rem; background: rgba(255,255,255,0.02); padding: 3rem; border: 1px solid var(--border-subtle); backdrop-filter: blur(10px);">
-        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <label style="color: var(--soft-white); font-size: 0.9rem;">Name</label>
-          <input type="text" name="name" required style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--white); padding: 0.5rem 0; font-size: 1.1rem; font-family: inherit; outline: none; transition: border-color 0.3s ease;">
+      <form
+        id="contactForm"
+        class="border-glow"
+        action="https://formsubmit.co/askintine@gmail.com"
+        method="POST"
+        aria-label="Contact inquiry form"
+        style="display: flex; flex-direction: column; gap: 2rem; background: rgba(255,255,255,0.02); padding: 3rem; border: 1px solid var(--border-subtle); backdrop-filter: blur(10px);"
+      >
+        <div hidden aria-hidden="true">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Intine Contact Form Submission">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.intine.co.in/thank-you">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_autoresponse" value="Thanks for contacting Intine. We'll get back to you soon.">
         </div>
-        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <label style="color: var(--soft-white); font-size: 0.9rem;">Email</label>
-          <input type="email" name="email" required style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--white); padding: 0.5rem 0; font-size: 1.1rem; font-family: inherit; outline: none; transition: border-color 0.3s ease;">
+
+        <div id="formStatus" class="contact-form-status" role="status" aria-live="polite" hidden></div>
+
+        <div class="contact-form-fields" id="contactFormFields">
+          <div class="contact-form-field" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <label for="contact-name" style="color: var(--soft-white); font-size: 0.9rem;">Name</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              required
+              autocomplete="name"
+              minlength="1"
+              style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--white); padding: 0.5rem 0; font-size: 1.1rem; font-family: inherit; outline: none; transition: border-color 0.3s ease;"
+            >
+          </div>
+          <div class="contact-form-field" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <label for="contact-email" style="color: var(--soft-white); font-size: 0.9rem;">Email</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="email"
+              required
+              autocomplete="email"
+              inputmode="email"
+              style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--white); padding: 0.5rem 0; font-size: 1.1rem; font-family: inherit; outline: none; transition: border-color 0.3s ease;"
+            >
+          </div>
+          <div class="contact-form-field" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <label for="contact-message" style="color: var(--soft-white); font-size: 0.9rem;">How can we help?</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="4"
+              required
+              minlength="1"
+              style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--white); padding: 0.5rem 0; font-size: 1.1rem; font-family: inherit; outline: none; transition: border-color 0.3s ease; resize: none;"
+            ></textarea>
+          </div>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <label style="color: var(--soft-white); font-size: 0.9rem;">How can we help?</label>
-          <textarea name="message" rows="4" required style="background: transparent; border: none; border-bottom: 1px solid var(--border-subtle); color: var(--white); padding: 0.5rem 0; font-size: 1.1rem; font-family: inherit; outline: none; transition: border-color 0.3s ease; resize: none;"></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="align-self: flex-start; border: none; cursor: pointer; margin-top: 1rem;">Send Inquiry</button>
+
+        <button
+          type="submit"
+          id="contactSubmitBtn"
+          class="btn-primary"
+          style="align-self: flex-start; border: none; cursor: pointer; margin-top: 1rem;"
+        >Send Inquiry</button>
       </form>
     </div>
   </section>
 
   <style>
     input:focus, textarea:focus { border-bottom-color: var(--white) !important; }
+    .contact-form-fields { display: flex; flex-direction: column; gap: 2rem; }
+    .contact-form-field.is-invalid input,
+    .contact-form-field.is-invalid textarea {
+      border-bottom-color: rgba(255, 120, 120, 0.7) !important;
+    }
+    .contact-form-status {
+      color: var(--soft-white);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: opacity 0.4s ease, max-height 0.4s ease, margin 0.4s ease;
+    }
+    .contact-form-status.is-visible {
+      opacity: 1;
+      max-height: 6rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact-form-status.is-error { color: rgba(255, 160, 160, 0.95); }
+    .contact-form-status.is-success { color: var(--white); }
+    #contactForm.is-submitting #contactSubmitBtn {
+      opacity: 0.7;
+      cursor: wait;
+      pointer-events: none;
+    }
+    #contactForm.is-success .contact-form-fields {
+      opacity: 0.35;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    #contactForm.is-success #contactSubmitBtn { display: none; }
     @media (max-width: 768px) {
       .contact-cinematic { flex-direction: column !important; padding: 2rem 1rem 6rem !important; }
       .contact-cinematic form { padding: 2rem !important; }

@@ -227,15 +227,115 @@ document.querySelectorAll(tiltSelector).forEach(card => {
   });
 });
 
-// Form handling (contact)
+// Form handling (contact) — FormSubmit
 const form = document.getElementById('contactForm');
 if (form) {
-  form.addEventListener('submit', function (e) {
+  const submitBtn = document.getElementById('contactSubmitBtn');
+  const statusEl = document.getElementById('formStatus');
+  const defaultBtnText = submitBtn ? submitBtn.textContent.trim() : 'Send Inquiry';
+  const thankYouUrl = 'https://www.intine.co.in/thank-you';
+  const formsubmitAjax = 'https://formsubmit.co/ajax/askintine@gmail.com';
+
+  const showStatus = (message, type) => {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    statusEl.className = `contact-form-status is-visible is-${type}`;
+    statusEl.hidden = false;
+  };
+
+  const clearStatus = () => {
+    if (!statusEl) return;
+    statusEl.textContent = '';
+    statusEl.className = 'contact-form-status';
+    statusEl.hidden = true;
+  };
+
+  const setFieldInvalid = (field, invalid) => {
+    const wrapper = field.closest('.contact-form-field');
+    if (wrapper) wrapper.classList.toggle('is-invalid', invalid);
+    field.setAttribute('aria-invalid', invalid ? 'true' : 'false');
+  };
+
+  const validateForm = () => {
+    clearStatus();
+    let valid = true;
+    const fields = form.querySelectorAll('#contact-name, #contact-email, #contact-message');
+
+    fields.forEach((field) => {
+      setFieldInvalid(field, false);
+      const value = field.value.trim();
+
+      if (!value) {
+        setFieldInvalid(field, true);
+        valid = false;
+        return;
+      }
+
+      if (field.type === 'email' && !field.checkValidity()) {
+        setFieldInvalid(field, true);
+        valid = false;
+      }
+    });
+
+    if (!valid) {
+      showStatus('Please fill in all required fields with a valid email address.', 'error');
+      const firstInvalid = form.querySelector('.contact-form-field.is-invalid input, .contact-form-field.is-invalid textarea');
+      if (firstInvalid) firstInvalid.focus();
+    }
+
+    return valid;
+  };
+
+  const setSubmitting = (isSubmitting) => {
+    form.classList.toggle('is-submitting', isSubmitting);
+    if (submitBtn) {
+      submitBtn.disabled = isSubmitting;
+      submitBtn.setAttribute('aria-busy', isSubmitting ? 'true' : 'false');
+      submitBtn.textContent = isSubmitting ? 'Sending...' : defaultBtnText;
+    }
+  };
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
-    alert("Thank you for your message! We'll get back to you soon.");
-    this.reset();
+
+    const honey = form.querySelector('input[name="_honey"]');
+    if (honey && honey.value.trim()) return;
+
+    if (!validateForm()) return;
+
+    setSubmitting(true);
+    clearStatus();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(formsubmitAjax, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      form.classList.add('is-success');
+      showStatus("Thank you! Your message has been sent. We'll be in touch soon.", 'success');
+      form.reset();
+
+      window.setTimeout(() => {
+        window.location.href = thankYouUrl;
+      }, 2200);
+    } catch {
+      showStatus('Something went wrong. Please try again or email us at askintine@gmail.com.', 'error');
+      setSubmitting(false);
+    }
+  });
+
+  form.querySelectorAll('#contact-name, #contact-email, #contact-message').forEach((field) => {
+    field.addEventListener('input', () => {
+      if (field.value.trim()) setFieldInvalid(field, false);
+    });
   });
 }
 
