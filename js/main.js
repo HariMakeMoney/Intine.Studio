@@ -178,7 +178,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
 
 
 // Hero scroll effect (subtle opacity and transform via requestAnimationFrame)
-const heroSection = document.querySelector('.hero, .page-header');
+const heroSection = document.querySelector('.hero, .page-header, .legal-hero');
 if (heroSection) {
   let ticking = false;
   window.addEventListener('scroll', () => {
@@ -238,6 +238,37 @@ if (form) {
     this.reset();
   });
 }
+
+// Scroll progress bar
+const scrollProgress = document.getElementById('scrollProgress');
+if (scrollProgress) {
+  const updateScrollProgress = () => {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    scrollProgress.style.width = `${progress}%`;
+  };
+  updateScrollProgress();
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('resize', updateScrollProgress, { passive: true });
+}
+
+// Legal page fade-in animations
+const legalFadeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        legalFadeObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+);
+
+document.querySelectorAll('.legal-fade').forEach((el, index) => {
+  el.style.transitionDelay = `${Math.min(index * 80, 400)}ms`;
+  legalFadeObserver.observe(el);
+});
 
 // BorderGlow Interaction Logic
 document.querySelectorAll('.border-glow').forEach(el => {

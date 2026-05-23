@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selected Work - Intine Cinematic Growth Studio</title>
+  <title>Selected Work - Intine Studio</title>
   <meta name="description" content="Explore our selected work. We build brand systems, websites, and digital experiences that drive real revenue and scale brands." />
-  <meta property="og:title" content="Selected Work - Intine Cinematic Growth Studio" />
+  <meta property="og:title" content="Selected Work - Intine Studio" />
   <meta property="og:description" content="Explore our selected work. We build brand systems, websites, and digital experiences that drive real revenue and scale brands." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.intine.co.in/work.html" />
@@ -17,6 +17,8 @@
 </head>
 
 <body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- Loading screen -->
   <div class="loading" id="loading">
     <div class="spinner"></div>
@@ -61,7 +63,7 @@
       <div class="case-info">
         <div class="case-meta">
           <h2>Saantham</h2>
-          <span class="case-category">Branding & Web Design / 2023</span>
+          <span class="case-category">Branding / Web Design / Content Strategy</span>
         </div>
         <div class="case-details">
           <div class="detail-group">
@@ -81,93 +83,93 @@
       </div>
     </article>
 
-    <!-- Wagwan -->
+    <!-- Sora -->
     <article class="case-study-row reverse border-glow">
       <div class="case-media">
         <div class="media-placeholder">
-          <span class="media-emoji">📱</span>
+          <span class="media-emoji">🍵</span>
           <div class="noise-overlay"></div>
         </div>
       </div>
       <div class="case-info">
         <div class="case-meta">
-          <h2>Wagwan</h2>
-          <span class="case-category">Web & Mobile Design / 2023</span>
+          <h2>Sora</h2>
+          <span class="case-category">Brand Identity / Packaging / Web Experience</span>
         </div>
         <div class="case-details">
           <div class="detail-group">
             <h3>Challenge</h3>
-            <p>Helping a Gen-Z event platform scale their digital experience.</p>
+            <p>Create a premium identity in an overcrowded coffee and wellness market.</p>
           </div>
           <div class="detail-group">
             <h3>Solution</h3>
-            <p>Built comprehensive design systems and brand cohesion across all digital touchpoints.</p>
+            <p>Designed a minimalist Japanese-inspired brand system with cinematic packaging and an immersive e-commerce experience.</p>
           </div>
           <div class="detail-group">
             <h3>Outcome</h3>
-            <p>Enhanced user retention and a scalable framework for future growth.</p>
+            <p>Elevated the brand into a premium lifestyle product with stronger engagement and perceived value.</p>
           </div>
         </div>
         <a href="https://www.wagwanworld.in/" class="case-btn" target="_blank">View Project <span class="arrow">→</span></a>
       </div>
     </article>
 
-    <!-- Brik Oven -->
+    <!-- Flow -->
     <article class="case-study-row border-glow">
       <div class="case-media">
         <div class="media-placeholder">
-          <span class="media-emoji">🍕</span>
+          <span class="media-emoji">🧠</span>
           <div class="noise-overlay"></div>
         </div>
       </div>
       <div class="case-info">
         <div class="case-meta">
-          <h2>Brik Oven</h2>
-          <span class="case-category">Branding & Marketing / 2022</span>
+          <h2>Flow</h2>
+          <span class="case-category">UI/UX Design / Branding</span>
         </div>
         <div class="case-details">
           <div class="detail-group">
             <h3>Challenge</h3>
-            <p>An artisanal pizza brand looking to elevate its dine-in experience.</p>
+            <p>Students often struggle with balancing tasks, deadlines, and focus across multiple platforms.</p>
           </div>
           <div class="detail-group">
             <h3>Solution</h3>
-            <p>Designed a clean, engaging menu system highlighting ingredients and enhancing readability.</p>
+            <p>Designed a clean productivity app focused on task management, scheduling, and distraction-free workflows with an intuitive mobile interface.</p>
           </div>
           <div class="detail-group">
             <h3>Outcome</h3>
-            <p>Strengthened brand identity and elevated the overall customer dining experience.</p>
+            <p>Created a more organized and engaging study experience that improved usability and daily productivity by gamifying the process.</p>
           </div>
         </div>
         <a href="https://www.brikoven.com/" class="case-btn" target="_blank">View Project <span class="arrow">→</span></a>
       </div>
     </article>
 
-    <!-- ArcticTurn -->
+    <!-- Atelier -->
     <article class="case-study-row reverse border-glow">
       <div class="case-media">
         <div class="media-placeholder">
-          <span class="media-emoji">📚</span>
+          <span class="media-emoji">🏢</span>
           <div class="noise-overlay"></div>
         </div>
       </div>
       <div class="case-info">
         <div class="case-meta">
-          <h2>ArcticTurn</h2>
-          <span class="case-category">Branding & Marketing / 2023</span>
+          <h2>Atelier</h2>
+          <span class="case-category">Web Design / Creative Direction</span>
         </div>
         <div class="case-details">
           <div class="detail-group">
             <h3>Challenge</h3>
-            <p>An edtech platform needing to connect students to global internships.</p>
+            <p>The studio’s digital presence did not reflect the quality of its architectural work.</p>
           </div>
           <div class="detail-group">
             <h3>Solution</h3>
-            <p>Built a clear, aspirational brand system communicating opportunity and global access.</p>
+            <p>Designed an editorial-style website with cinematic layouts, immersive transitions, and strong typography.</p>
           </div>
           <div class="detail-group">
             <h3>Outcome</h3>
-            <p>Increased student applications and improved institutional trust.</p>
+            <p>Created a more premium brand perception and increased visitor engagement.</p>
           </div>
         </div>
         <a href="https://arcticturn.in/" class="case-btn" target="_blank">View Project <span class="arrow">→</span></a>
@@ -245,8 +247,15 @@
     </div>
   </section>
 
-  <footer>
-    © 2020 Intine. All rights reserved.
+  <footer class="site-footer">
+    <nav class="footer-nav" aria-label="Legal and policies">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="refund.html">Refunds</a>
+      <a href="delivery.html">Delivery</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="footer-copy">© 2020 Intine. All rights reserved.</p>
   </footer>
   <script src="js/main.js"></script>
 </body>

@@ -2987,3 +2987,224 @@ footer {
     padding-left: 2rem;
   }
 }
+
+/* ==================================================
+   SCROLL PROGRESS BAR
+   ================================================== */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35), var(--white));
+  z-index: 10001;
+  pointer-events: none;
+  transform-origin: left center;
+  will-change: width;
+}
+
+/* ==================================================
+   LEGAL PAGES
+   ================================================== */
+.legal-hero {
+  min-height: 50vh;
+  padding-bottom: 2rem;
+}
+
+.legal-hero .hero-title {
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  animation: none;
+}
+
+.legal-effective-date {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--soft-white);
+  margin-top: 0.5rem;
+  opacity: 0;
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.35s;
+}
+
+.legal-main {
+  padding: 0 2rem 8rem;
+}
+
+.legal-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.legal-intro {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--soft-white);
+  margin-bottom: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.legal-block {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.legal-block:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.legal-block h2 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.legal-block p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--soft-white);
+  margin-bottom: 1rem;
+}
+
+.legal-block p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-block ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.legal-block li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--soft-white);
+}
+
+.legal-block li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.legal-link {
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 2px;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.legal-link:hover {
+  opacity: 0.75;
+  border-bottom-color: var(--white);
+}
+
+.legal-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.legal-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Site footer with legal links */
+.site-footer {
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid var(--border-subtle);
+  font-family: 'Satoshi', sans-serif;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-nav a {
+  color: var(--soft-white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.footer-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: var(--white);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-nav a:hover,
+.footer-nav a.active {
+  color: var(--white);
+}
+
+.footer-nav a:hover::after,
+.footer-nav a.active::after {
+  width: 100%;
+}
+
+.footer-copy {
+  font-size: 0.95rem;
+  color: var(--soft-white);
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .legal-main {
+    padding: 0 1.25rem 6rem;
+  }
+
+  .legal-intro {
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .legal-block {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .legal-block h2 {
+    font-size: 1.2rem;
+  }
+
+  .footer-nav {
+    gap: 1rem 1.5rem;
+  }
+}
