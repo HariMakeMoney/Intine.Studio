@@ -115,7 +115,7 @@ if (header) {
 
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
-    
+
     // Add scrolled class for background styling
     if (currentScrollY > 100) {
       header.classList.add('scrolled');
@@ -131,7 +131,7 @@ if (header) {
       // Scrolling up
       header.classList.remove('nav-hidden');
     }
-    
+
     lastScrollY = currentScrollY;
   }, { passive: true });
 
@@ -142,7 +142,7 @@ if (header) {
   header.appendChild(menuBtn);
 
   const nav = header.querySelector('nav');
-  
+
   menuBtn.addEventListener('click', () => {
     menuBtn.classList.toggle('active');
     nav.classList.toggle('active');
